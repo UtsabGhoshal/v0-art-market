@@ -1,11 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
-import { Star, Search } from "lucide-react"
+import { Star, Search, X } from "lucide-react"
+import { locations } from "@/lib/locations"
 
 const allArtisans = [
   {
@@ -13,6 +15,7 @@ const allArtisans = [
     name: "Radha Pal",
     craft: "Clay Sculpture",
     location: "Krishnanagar, Nadia",
+    locationId: "krishnanagar",
     rating: 4.9,
     reviews: 248,
     specialties: ["Matir Putul", "Deity Idols", "Mythological Figures"],
@@ -24,6 +27,7 @@ const allArtisans = [
     name: "Hari Das",
     craft: "Handloom Weaving",
     location: "Shantipur, Nadia",
+    locationId: "shantipur",
     rating: 4.8,
     reviews: 312,
     specialties: ["Cotton Saris", "Dhotis", "Natural Dyes"],
@@ -35,6 +39,7 @@ const allArtisans = [
     name: "Priya Malakar",
     craft: "Shola Craft",
     location: "Bankapasi, Katwa",
+    locationId: "bankapasi",
     rating: 5,
     reviews: 189,
     specialties: ["Festival Decorations", "Crown Designs", "Ornaments"],
@@ -46,6 +51,7 @@ const allArtisans = [
     name: "Sandeep Kumar",
     craft: "Clay Idol Making",
     location: "Kumartuli, Kolkata",
+    locationId: "kumartuli",
     rating: 4.9,
     reviews: 425,
     specialties: ["Temple Idols", "Durga Puja", "Festival Sculptures"],
@@ -57,6 +63,7 @@ const allArtisans = [
     name: "Meera Roy",
     craft: "Handloom Weaving",
     location: "Phulia, Nadia",
+    locationId: "shantipur",
     rating: 4.7,
     reviews: 156,
     specialties: ["Sarees", "Dress Materials", "Jacquard Patterns"],
@@ -68,6 +75,7 @@ const allArtisans = [
     name: "Amit Malakar",
     craft: "Shola Craft",
     location: "Bankapasi, Katwa",
+    locationId: "bankapasi",
     rating: 4.8,
     reviews: 203,
     specialties: ["Wedding Decorations", "Custom Orders", "Festival Items"],
@@ -79,15 +87,26 @@ const allArtisans = [
 export function ArtisanGrid() {
   const [search, setSearch] = useState("")
   const [selectedCraft, setSelectedCraft] = useState<string | null>(null)
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null)
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const locationParam = searchParams.get("location")
+    if (locationParam) {
+      setSelectedLocation(locationParam)
+    }
+  }, [searchParams])
 
   const crafts = [...new Set(allArtisans.map((a) => a.craft))]
+  const selectedLocationData = selectedLocation ? locations.find((l) => l.id === selectedLocation) : null
 
   const filtered = allArtisans.filter((artisan) => {
     const matchesSearch =
       artisan.name.toLowerCase().includes(search.toLowerCase()) ||
       artisan.location.toLowerCase().includes(search.toLowerCase())
     const matchesCraft = !selectedCraft || artisan.craft === selectedCraft
-    return matchesSearch && matchesCraft
+    const matchesLocation = !selectedLocation || artisan.locationId === selectedLocation
+    return matchesSearch && matchesCraft && matchesLocation
   })
 
   return (
