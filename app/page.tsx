@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { FeaturedArtisans } from "@/components/featured-artisans"
-import { CraftCategories } from "@/components/craft-categories"
+import { LocationsGrid } from "@/components/locations-grid"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -9,8 +8,7 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
       <Hero />
-      <CraftCategories />
-      <FeaturedArtisans />
+      <LocationsGrid />
       <Footer />
     </main>
   )

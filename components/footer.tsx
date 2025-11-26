@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-bold text-lg mb-4">About Artisan Market</h3>
+            <h3 className="font-bold text-lg mb-4">About Heritage Hub</h3>
             <p className="text-sm opacity-90">
               Supporting West Bengal's master craftspeople by connecting them directly with conscious consumers
               worldwide.
@@ -91,7 +91,7 @@ export function Footer() {
 
         <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-items-center md:justify-between gap-4">
-            <p className="text-sm opacity-90">© 2025 Artisan Market. Celebrating West Bengal's craftsmanship.</p>
+            <p className="text-sm opacity-90">© 2025 Heritage Hub. Celebrating West Bengal's craftsmanship.</p>
             <div className="flex gap-6 text-sm">
               <Link href="/privacy" className="hover:opacity-80 transition">
                 Privacy Policy

@@ -17,9 +17,12 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="font-bold text-xl text-primary">
-            {t("artisanMarket")}
-          </Link>
+          <div className="flex flex-col gap-0">
+            <Link href="/" className="font-bold text-xl text-primary hover:opacity-80 transition">
+              {t("artisanMarket")}
+            </Link>
+            <p className="text-xs italic font-light text-primary/70 leading-tight">{t("heritageCaption")}</p>
+          </div>
 
           <nav className="hidden md:flex gap-8">
             <Link href="/artisans" className="text-foreground hover:text-primary transition">

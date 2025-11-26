@@ -208,6 +208,106 @@ const artisanData: Record<string, any> = {
       },
     ],
   },
+  "5": {
+    id: 5,
+    name: "Meera Roy",
+    craft: "Handloom Weaver",
+    location: "Phulia, Nadia District",
+    rating: 4.7,
+    reviews: 156,
+    yearsActive: 22,
+    followers: 845,
+    description:
+      "Master weaver creating beautiful sarees and dress materials with traditional techniques. Meera's work combines heritage patterns with contemporary designs.",
+    bio: "Meera Roy learned weaving from her mother and has perfected the craft over 22 years. She specializes in creating unique jacquard patterns and natural dye sarees that appeal to both traditional and modern customers.",
+    image: 'url("/placeholder.svg?key=meera")',
+    specialties: ["Sarees", "Dress Materials", "Jacquard Patterns", "Natural Dyes"],
+    certifications: ["State Handloom Award", "Fair Trade Partner"],
+    products: [
+      {
+        id: 17,
+        name: "Traditional Handwoven Saree",
+        price: 4200,
+        image: 'url("/public/traditional-handloom-textile-weaving.jpg")',
+        rating: 4.7,
+        reviews: 38,
+      },
+      {
+        id: 18,
+        name: "Cotton Dress Material - 2 Meters",
+        price: 2200,
+        image: 'url("/public/traditional-handloom-textile-weaving.jpg")',
+        rating: 4.6,
+        reviews: 22,
+      },
+      {
+        id: 19,
+        name: "Jacquard Pattern Saree Premium",
+        price: 7500,
+        image: 'url("/public/traditional-handloom-textile-weaving.jpg")',
+        rating: 4.9,
+        reviews: 44,
+      },
+      {
+        id: 20,
+        name: "Silk-Cotton Blend Saree Deluxe",
+        price: 10500,
+        image: 'url("/public/traditional-handloom-textile-weaving.jpg")',
+        rating: 4.8,
+        reviews: 31,
+      },
+    ],
+  },
+  "6": {
+    id: 6,
+    name: "Amit Malakar",
+    craft: "Shola Wood Artisan",
+    location: "Bankapasi, Katwa District",
+    rating: 4.8,
+    reviews: 203,
+    yearsActive: 18,
+    followers: 725,
+    description:
+      "Specialized shola wood craftsman creating beautiful decorations for weddings and festivals. Amit is known for his innovative designs and custom orders.",
+    bio: "Amit Malakar comes from a family of shola artisans and has developed his unique style over 18 years. He combines traditional carving techniques with contemporary design sensibilities.",
+    image: 'url("/placeholder.svg?key=amit")',
+    specialties: ["Wedding Decorations", "Custom Orders", "Festival Items", "Innovative Designs"],
+    certifications: ["Shola Artisan Guild Master", "Best Craftsman Award"],
+    products: [
+      {
+        id: 21,
+        name: "Shola Decorative Set - Basic",
+        price: 2800,
+        image: 'url("/public/white-shola-wood-festival-decorations.jpg")',
+        rating: 4.7,
+        reviews: 25,
+      },
+      {
+        id: 22,
+        name: "Festival Crown - Standard",
+        price: 4500,
+        image: 'url("/public/white-shola-wood-festival-decorations.jpg")',
+        rating: 4.8,
+        reviews: 32,
+      },
+      {
+        id: 23,
+        name: "Wedding Decoration Package",
+        price: 12000,
+        image: 'url("/public/white-shola-wood-festival-decorations.jpg")',
+        rating: 5,
+        reviews: 18,
+      },
+      {
+        id: 24,
+        name: "Custom Shola Sculpture - Large",
+        price: 16500,
+        image: 'url("/public/white-shola-wood-festival-decorations.jpg")',
+        rating: 4.9,
+        reviews: 14,
+      },
+    ],
+  },
 }
 
 export function ArtisanProfileDetail({ artisanId }: { artisanId: string }) {
@@ -312,35 +412,97 @@ export function ArtisanProfileDetail({ artisanId }: { artisanId: string }) {
 
       {/* Products Section */}
       <div>
-        <h2 className="text-2xl font-bold text-primary mb-6">Featured Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {artisan.products.map((product: any) => (
-            <Card key={product.id} className="overflow-hidden hover:shadow-lg transition">
-              <div className="h-48 bg-cover bg-center opacity-20" style={{ backgroundImage: product.image }} />
-              <div className="p-4">
-                <h3 className="font-semibold text-primary mb-2">{product.name}</h3>
+        <h2 className="text-2xl font-bold text-primary mb-6">Products Available</h2>
 
-                <div className="flex items-center gap-1 mb-3">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={14}
-                        className={i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs text-foreground/60">({product.reviews})</span>
-                </div>
+        {/* Low Cost Products */}
+        {artisan.products.filter((p: any) => p.price < 5000).length > 0 && (
+          <div className="mb-10">
+            <div className="flex items-center gap-2 mb-4">
+              <h3 className="text-xl font-semibold text-primary">Low Cost</h3>
+              <span className="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
+                Budget Friendly
+              </span>
+            </div>
+            <p className="text-sm text-foreground/70 mb-4">Affordable products under ₹5000</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {artisan.products
+                .filter((p: any) => p.price < 5000)
+                .map((product: any) => (
+                  <Card key={product.id} className="overflow-hidden hover:shadow-lg transition">
+                    <div className="h-48 bg-cover bg-center opacity-20" style={{ backgroundImage: product.image }} />
+                    <div className="p-4">
+                      <h3 className="font-semibold text-primary mb-2">{product.name}</h3>
 
-                <p className="text-2xl font-bold text-primary mb-3">₹{product.price}</p>
-                <Link href={`/shop/${product.id}`}>
-                  <Button className="w-full bg-primary hover:bg-primary/90">View Product</Button>
-                </Link>
-              </div>
-            </Card>
-          ))}
-        </div>
+                      <div className="flex items-center gap-1 mb-3">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              size={14}
+                              className={
+                                i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                              }
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-foreground/60">({product.reviews})</span>
+                      </div>
+
+                      <p className="text-2xl font-bold text-primary mb-3">₹{product.price}</p>
+                      <Link href={`/shop/${product.id}`}>
+                        <Button className="w-full bg-primary hover:bg-primary/90">View Product</Button>
+                      </Link>
+                    </div>
+                  </Card>
+                ))}
+            </div>
+          </div>
+        )}
+
+        {/* Fair Cost Products */}
+        {artisan.products.filter((p: any) => p.price >= 5000).length > 0 && (
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <h3 className="text-xl font-semibold text-primary">Fair Cost</h3>
+              <span className="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">
+                Premium Quality
+              </span>
+            </div>
+            <p className="text-sm text-foreground/70 mb-4">Premium products priced fairly at ₹5000 and above</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {artisan.products
+                .filter((p: any) => p.price >= 5000)
+                .map((product: any) => (
+                  <Card key={product.id} className="overflow-hidden hover:shadow-lg transition">
+                    <div className="h-48 bg-cover bg-center opacity-20" style={{ backgroundImage: product.image }} />
+                    <div className="p-4">
+                      <h3 className="font-semibold text-primary mb-2">{product.name}</h3>
+
+                      <div className="flex items-center gap-1 mb-3">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              size={14}
+                              className={
+                                i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                              }
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-foreground/60">({product.reviews})</span>
+                      </div>
+
+                      <p className="text-2xl font-bold text-primary mb-3">₹{product.price}</p>
+                      <Link href={`/shop/${product.id}`}>
+                        <Button className="w-full bg-primary hover:bg-primary/90">View Product</Button>
+                      </Link>
+                    </div>
+                  </Card>
+                ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
