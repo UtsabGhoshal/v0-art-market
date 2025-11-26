@@ -1,6 +1,6 @@
-# Artisan Market
+# Heritage Hub
 
-A marketplace platform connecting customers directly with West Bengal's master craftspeople, preserving traditional art forms while providing sustainable income for artisan communities.
+A marketplace platform connecting customers directly with West Bengal's master craftspeople, preserving traditional art forms while providing sustainable income for artisan communities. Where art has no boundaries.
 
 ## Features
 

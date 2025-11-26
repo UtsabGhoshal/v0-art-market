@@ -17,20 +17,20 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Artisan Market - Support West Bengal Craftspeople | Direct from Artisans",
+  title: "Heritage Hub - Support West Bengal Craftspeople | Direct from Artisans",
   description:
     "Discover authentic handcrafted goods from West Bengal's master artisans. Shop traditional textiles, clay sculptures, and more. 100% direct to artisans. Free shipping across India.",
   keywords: "handmade, artisan, West Bengal, clay sculptures, handloom, sari, crafts, fair trade",
   generator: "v0.app",
   openGraph: {
-    title: "Artisan Market - Support West Bengal Craftspeople",
+    title: "Heritage Hub - Support West Bengal Craftspeople",
     description: "Authentic handcrafted goods directly from master artisans",
     type: "website",
     url: "https://artisanmarket.vercel.app",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Artisan Market",
+    title: "Heritage Hub",
     description: "Support West Bengal's craftspeople",
   },
   icons: {
