@@ -17,8 +17,9 @@ export function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="font-bold text-xl text-primary">
-            {t("artisanMarket")}
+          <Link href="/" className="flex flex-col gap-0">
+            <span className="font-bold text-xl text-primary">{t("artisanMarket")}</span>
+            <span className="text-xs italic font-light text-primary/70 leading-tight">{t("heritageCaption")}</span>
           </Link>
 
           <nav className="hidden md:flex gap-8">
