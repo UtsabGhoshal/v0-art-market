@@ -312,35 +312,97 @@ export function ArtisanProfileDetail({ artisanId }: { artisanId: string }) {
 
       {/* Products Section */}
       <div>
-        <h2 className="text-2xl font-bold text-primary mb-6">Featured Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {artisan.products.map((product: any) => (
-            <Card key={product.id} className="overflow-hidden hover:shadow-lg transition">
-              <div className="h-48 bg-cover bg-center opacity-20" style={{ backgroundImage: product.image }} />
-              <div className="p-4">
-                <h3 className="font-semibold text-primary mb-2">{product.name}</h3>
+        <h2 className="text-2xl font-bold text-primary mb-6">Products Available</h2>
 
-                <div className="flex items-center gap-1 mb-3">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        size={14}
-                        className={i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-xs text-foreground/60">({product.reviews})</span>
-                </div>
+        {/* Low Cost Products */}
+        {artisan.products.filter((p: any) => p.price < 5000).length > 0 && (
+          <div className="mb-10">
+            <div className="flex items-center gap-2 mb-4">
+              <h3 className="text-xl font-semibold text-primary">Low Cost</h3>
+              <span className="bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
+                Budget Friendly
+              </span>
+            </div>
+            <p className="text-sm text-foreground/70 mb-4">Affordable products under ₹5000</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {artisan.products
+                .filter((p: any) => p.price < 5000)
+                .map((product: any) => (
+                  <Card key={product.id} className="overflow-hidden hover:shadow-lg transition">
+                    <div className="h-48 bg-cover bg-center opacity-20" style={{ backgroundImage: product.image }} />
+                    <div className="p-4">
+                      <h3 className="font-semibold text-primary mb-2">{product.name}</h3>
 
-                <p className="text-2xl font-bold text-primary mb-3">₹{product.price}</p>
-                <Link href={`/shop/${product.id}`}>
-                  <Button className="w-full bg-primary hover:bg-primary/90">View Product</Button>
-                </Link>
-              </div>
-            </Card>
-          ))}
-        </div>
+                      <div className="flex items-center gap-1 mb-3">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              size={14}
+                              className={
+                                i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                              }
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-foreground/60">({product.reviews})</span>
+                      </div>
+
+                      <p className="text-2xl font-bold text-primary mb-3">₹{product.price}</p>
+                      <Link href={`/shop/${product.id}`}>
+                        <Button className="w-full bg-primary hover:bg-primary/90">View Product</Button>
+                      </Link>
+                    </div>
+                  </Card>
+                ))}
+            </div>
+          </div>
+        )}
+
+        {/* Fair Cost Products */}
+        {artisan.products.filter((p: any) => p.price >= 5000).length > 0 && (
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <h3 className="text-xl font-semibold text-primary">Fair Cost</h3>
+              <span className="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full">
+                Premium Quality
+              </span>
+            </div>
+            <p className="text-sm text-foreground/70 mb-4">Premium products priced fairly at ₹5000 and above</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {artisan.products
+                .filter((p: any) => p.price >= 5000)
+                .map((product: any) => (
+                  <Card key={product.id} className="overflow-hidden hover:shadow-lg transition">
+                    <div className="h-48 bg-cover bg-center opacity-20" style={{ backgroundImage: product.image }} />
+                    <div className="p-4">
+                      <h3 className="font-semibold text-primary mb-2">{product.name}</h3>
+
+                      <div className="flex items-center gap-1 mb-3">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              size={14}
+                              className={
+                                i < Math.floor(product.rating) ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                              }
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-foreground/60">({product.reviews})</span>
+                      </div>
+
+                      <p className="text-2xl font-bold text-primary mb-3">₹{product.price}</p>
+                      <Link href={`/shop/${product.id}`}>
+                        <Button className="w-full bg-primary hover:bg-primary/90">View Product</Button>
+                      </Link>
+                    </div>
+                  </Card>
+                ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
