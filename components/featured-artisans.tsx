@@ -82,8 +82,8 @@ export function FeaturedArtisans() {
 
                 <p className="text-sm text-foreground/70 mb-4 flex-1">{artisan.description}</p>
 
-                <Link href={`/artisans/${artisan.id}`}>
-                  <Button className="w-full bg-primary hover:bg-primary/90">View Profile</Button>
+                <Link href={`/shop?artisan=${artisan.id}`}>
+                  <Button className="w-full bg-primary hover:bg-primary/90">Visit the Shop</Button>
                 </Link>
               </div>
             </Card>
