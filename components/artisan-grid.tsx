@@ -111,6 +111,22 @@ export function ArtisanGrid() {
 
   return (
     <div>
+      {selectedLocationData && (
+        <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-center justify-between">
+          <div>
+            <h2 className="text-lg font-semibold text-primary">{selectedLocationData.title}</h2>
+            <p className="text-sm text-foreground/70 mt-1">{selectedLocationData.description}</p>
+          </div>
+          <button
+            onClick={() => setSelectedLocation(null)}
+            className="ml-4 p-2 hover:bg-amber-100 rounded-lg transition"
+            aria-label="Clear location filter"
+          >
+            <X size={20} className="text-primary" />
+          </button>
+        </div>
+      )}
+
       <div className="mb-8 space-y-4">
         <div className="relative">
           <Search className="absolute left-3 top-3 text-foreground/50" size={20} />
