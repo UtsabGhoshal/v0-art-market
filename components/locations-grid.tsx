@@ -22,7 +22,7 @@ export function LocationsGrid() {
               <Card
                 className={`h-full overflow-hidden hover:shadow-lg hover:scale-105 transition-all cursor-pointer bg-gradient-to-br ${location.color}`}
               >
-                <div className="h-40 bg-gradient-to-br opacity-20" style={{ backgroundImage: location.image }} />
+                <div className="h-40 bg-cover bg-center" style={{ backgroundImage: `url(${location.image})` }} />
                 <div className="p-4">
                   <h3 className="font-bold text-lg text-primary mb-1">{location.name}</h3>
                   <p className="text-xs font-semibold text-primary/70 mb-2">{location.specialization}</p>
