@@ -1,7 +1,8 @@
 export const translations = {
   en: {
     // Header
-    artisanMarket: "Artisan Market",
+    artisanMarket: "Heritage Hub",
+    heritageCaption: "Where art has no boundaries",
     artisans: "Artisans",
     shop: "Shop",
     about: "About",
@@ -55,7 +56,8 @@ export const translations = {
   },
   bn: {
     // Header
-    artisanMarket: "কারিগর বাজার",
+    artisanMarket: "হেরিটেজ হাব",
+    heritageCaption: "যেখানে শিল্পের কোন সীমানা নেই",
     artisans: "কারিগররা",
     shop: "দোকান",
     about: "সম্পর্কে",
@@ -67,7 +69,7 @@ export const translations = {
     discoverHandcrafted:
       "পশ্চিমবঙ্গের মাস্টার কারিগরদের কাছ থেকে খাঁটি হস্তনির্মিত পণ্য আবিষ্কার করুন। প্রতিটি পণ্য ঐতিহ্য, দক্ষতা এবং সাংস্কৃতিক ঐতিহ্যের একটি গল্প বলে।",
     exploreShop: "দোকান অন্বেষণ করুন",
-    meetArtisans: "কারিগরদের সাথে দেখা করুন",
+    meetArtisans: "কারিগরদের সাথ��� দেখা করুন",
 
     // Shop
     allProducts: "সব পণ্য কেনাকাটা করুন",
@@ -89,7 +91,7 @@ export const translations = {
     proceedCheckout: "চেকআউট এ যান",
     clearCart: "কার্ট সাফ করুন",
     directToArtisans: "১০০% সরাসরি কারিগরদের কাছে",
-    purchaseSupports: "আপনার ক্রয় পশ্চিমবঙ্গের কারিগর এবং তাদের পরিবারগুলিকে সরাসরি সমর্থন করে।",
+    purchaseSupports: "আপনার ক্রয় ��শ্চিমবঙ্গের কারিগর এবং তাদের পরিবারগুলিকে সরাসরি সমর্থন করে।",
 
     // Messaging
     messages: "বার্তা",
