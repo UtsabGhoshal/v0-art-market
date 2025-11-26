@@ -191,8 +191,8 @@ export function ArtisanGrid() {
                 </div>
               </div>
 
-              <Link href={`/artisans/${artisan.id}`} className="mt-auto">
-                <Button className="w-full bg-primary hover:bg-primary/90">View Profile</Button>
+              <Link href={`/shop?artisan=${artisan.id}`} className="mt-auto">
+                <Button className="w-full bg-primary hover:bg-primary/90">Visit the Shop</Button>
               </Link>
             </div>
           </Card>

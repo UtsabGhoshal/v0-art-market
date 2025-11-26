@@ -206,9 +206,10 @@ const allProducts: Product[] = [
   },
 ]
 
-export function ProductGrid({ initialCategory }: { initialCategory?: string }) {
+export function ProductGrid({ initialCategory, initialArtisan }: { initialCategory?: string; initialArtisan?: string }) {
   const [search, setSearch] = useState("")
   const [selectedCategory, setSelectedCategory] = useState<string | null>(initialCategory || null)
+  const [selectedArtisan, setSelectedArtisan] = useState<string | null>(initialArtisan || null)
   const [sortBy, setSortBy] = useState("featured")
   const { addItem } = useCart()
   const [addedProduct, setAddedProduct] = useState<number | null>(null)
@@ -220,7 +221,8 @@ export function ProductGrid({ initialCategory }: { initialCategory?: string }) {
       product.name.toLowerCase().includes(search.toLowerCase()) ||
       product.artisan.toLowerCase().includes(search.toLowerCase())
     const matchesCategory = !selectedCategory || product.category === selectedCategory
-    return matchesSearch && matchesCategory
+    const matchesArtisan = !selectedArtisan || product.artisanId === parseInt(selectedArtisan)
+    return matchesSearch && matchesCategory && matchesArtisan
   })
 
   if (sortBy === "price-low") {
